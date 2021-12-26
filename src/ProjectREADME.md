@@ -14,6 +14,15 @@ react-sunrise-app
     │    ├── manifest.json
     │    └── robots.txt
     ├── src
+    |    ├── components
+    |         ├── Registration
+    |               ├── registrationForm.js
+    |               ├── Home.js
+    |         ├── Home.js
+    |         ├── Header.js
+    |         ├── Footer.js
+    │    ├── favicon.ico
+    │    ├── favicon.ico
     │    ├── App.css
     │    ├── App.js
     │    ├── App.test.js
