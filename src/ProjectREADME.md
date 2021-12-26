@@ -14,7 +14,7 @@ react-sunrise-app
     │    ├── manifest.json
     │    └── robots.txt
     ├── src
-    |    ├── components
+    |    ├── components (items in here are caps)
     |         ├── Registration
     |               ├── registrationForm.js
     |               ├── Home.js
