@@ -1,7 +1,13 @@
 
+###  Referenced
+-  https://developer.okta.com/blog/2020/08/26/react-hooks
+
 ### Dependencies
 1.  React
 2.  React Bootstrap
+3.  Okta
+4.  okta-react@3.0.4 
+5.  react-router-dom@5.2.0
 
 ###  File Structure
 react-sunrise-app
@@ -14,7 +20,7 @@ react-sunrise-app
     │    ├── manifest.json
     │    └── robots.txt
     ├── src
-    |    ├── components
+    |    ├── components (items in here are caps)
     |         ├── Registration
     |               ├── registrationForm.js
     |               ├── Home.js
