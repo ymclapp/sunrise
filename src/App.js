@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 //import { Search } from './components/Search';
-import { SearchWDebounc } from './components/SearchWDebounc';
+import { Search } from './components/Search';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { LoginCallback, SecureRoute, Security } from '@okta/okta-react';
 import { Home } from './components/Home';
@@ -19,10 +19,10 @@ function App() {
           redirectUri={window.location.origin + '/callback'}
           pkce={true}>
           <Route path='/' exact={true} component={Home} />
-          <SecureRoute path='/search' exact={true} component={ SearchWDebounc } />
+          <SecureRoute path='/search' exact={true} component={ Search } />
           <Route path='/callback' component={LoginCallback} />
         </Security>
-        <SearchWDebounce />
+        <Search />
       </Router>
     </div>
   );
