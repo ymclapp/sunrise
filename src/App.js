@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import { Search } from './components/Search';
+//import { Search } from './components/Search';
+import { Search } from './components/SearchWDebounc';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { LoginCallback, SecureRoute, Security } from '@okta/okta-react';
 import { Home } from './components/Home';
