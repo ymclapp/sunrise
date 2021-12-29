@@ -10,6 +10,8 @@ export function searchBooks(query) {
 }
 
 export function Search() {
+
+    
     const [results, setResults] = React.useState(0);
 
     const handleSearch = (event) => {
