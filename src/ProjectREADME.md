@@ -1,6 +1,8 @@
 
 ###  Referenced
 -  https://developer.okta.com/blog/2020/08/26/react-hooks
+-  https://usehooks.com/useDebounce/
+-  https://codesandbox.io/s/711r1zmq50?file=/src/use-debounce.js
 
 ### Dependencies
 1.  React
