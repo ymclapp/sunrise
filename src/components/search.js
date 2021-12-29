@@ -3,6 +3,15 @@ import useDebounce from '../hooks/useDebounce';
 
 const baseUrl = 'http://openlibrary.org';
 
+// API search function
+function searchCharacters(query) {
+    const url = new URL(baseUrl + '/search.json');
+    url.searchParams.append('title', query);
+
+    return fetch(url)
+    .then(response => response.json());
+}
+
 export function Search() {
     // State and setters for ...
     // Search term
@@ -34,35 +43,41 @@ export function Search() {
         [debouncedSearchTerm]// Only call effect if debounced search term changes
     );
 
+    const resultList = (results || []).map((book) =>
+    <tr key={ book.key }>
+        <td>{ book.title }</td>
+        <td>{ book.author_name && book.author_name.join(', ') }</td>
+        <td>{ book.first_publish_year }</td>
+    </tr>
+    );
+
     return (
+        <>
         <div>
             <input
                 placeholder="Search"
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-
-            {isSearching && <div>Searching...</div>}
-
-            {results.map((result) => (
-                <div key={result.id}>
-                    <h4>{result.title}</h4>
+            <div>
+            <h1 className="h1">Search Results</h1>
+            <div className="books">
+                <table>
+                    <thead>
+                        <tr>
+                            <th className="title-col">Title</th>
+                            <th className="author-col">Author</th>
+                            <th className="year-col">Pub Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { resultList }
+                    </tbody>
+                </table>
                 </div>
-            ))}
-        </div>
-    );
+                </div>
+            </div>
+            </>
+    )
 }
 
-// API search function
-function searchCharacters(query) {
-    const url = new URL(baseUrl + '/search.json');
-    url.searchParams.append('title', query);
-
-    return fetch(url)
-        .then((r) => r.json())
-        .then((r) => r.data.results)
-        .catch((error) => {
-            console.error(error);
-            return [];
-        });
-}
 
