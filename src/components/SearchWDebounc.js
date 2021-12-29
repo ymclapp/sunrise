@@ -3,7 +3,7 @@ import useDebounce from '../hooks/useDebounce';
 
 const baseUrl = 'http://openlibrary.org';
 
-export default function SearchWDebounce() {
+export default function Search() {
     // State and setters for ...
     // Search term
     const [searchTerm, setSearchTerm] = useState("");
@@ -53,16 +53,17 @@ export default function SearchWDebounce() {
 }
 
 // API search function
-function searchCharacters(query) {
+async function searchCharacters(query) {
     const url = new URL(baseUrl + '/search.json');
     url.searchParams.append('title', query);
 
-    return fetch(url)
-        .then((r) => r.json())
-        .then((r) => r.data.results)
-        .catch((error) => {
-            console.error(error);
-            return [];
-        });
+    try {
+        const r = await fetch(url);
+        const r_1 = await r.json();
+        return r_1.data.results;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
 }
 
